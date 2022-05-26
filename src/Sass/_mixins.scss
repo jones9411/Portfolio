@@ -1,0 +1,52 @@
+@use "./variables" as *;
+
+// display flex-box
+//
+
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// media query manager
+/*
+0px - 600px :: phone screens   ==== 37.5em applies to LESS than 600px
+600px - 900px :: tablet portrait screen size   ==== 56.25em applies to LESS than 900px
+900px - 1200px :: tablet landscape screen size   ==== 75em applies to LESS than 1200px
+1800px + :: large desktop screens   ==== 112.5em applies to MORE than 1800px
+
+$breakpoint argument choices:
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em is 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tablet-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tablet-land {
+    @media only screen and (max-width: 65em) {
+      @content;
+    } //1040px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 90.5em) {
+      @content;
+    } //1800
+  }
+}

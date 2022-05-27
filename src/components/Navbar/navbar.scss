@@ -1,9 +1,176 @@
-nav {
-  position: absolute;
+@use "../../Sass/" as *;
+
+.app__navbar {
+  width: 100%;
+  height: 10%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @include respond(tablet-land) {
+    justify-content: space-between;
+  }
+
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: fixed;
+  z-index: 10;
+
+  &-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+      margin: 1rem 0 0;
+      width: 16rem;
+      height: 4.5rem;
+
+      @include respond(big-desktop) {
+        width: 18rem;
+        height: 5.2rem;
+      }
+    }
+  }
+
+  &-links {
+    flex: 0.75;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    list-style: none;
+
+    @include respond(tablet-port) {
+      display: none;
+    }
+
+    li {
+      margin: 0 1rem;
+      cursor: pointer;
+      font-size: 1.5rem;
+      flex-direction: column;
+
+      @include respond(big-desktop) {
+        font-size: 1.65rem;
+      }
+
+      &:hover {
+        div {
+          background-color: $secondary-color;
+        }
+
+        a {
+          color: $secondary-color;
+        }
+      }
+
+      div {
+        width: 5px;
+        height: 5px;
+        background: transparent;
+        border-radius: 50%;
+        margin-bottom: 5px;
+
+        transition: all 0.3s ease-in-out;
+      }
+
+      a {
+        color: $gray-color;
+        text-decoration: none;
+        text-transform: capitalize;
+        flex-direction: column;
+        font-weight: 500;
+
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
 }
 
-img {
+.app__navbar-menu {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
   position: relative;
-  top: -65px;
-  left: -55px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5699d2;
+
+  svg {
+    width: 70%;
+    height: 70%;
+    color: #fff;
+  }
+
+  div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    padding: 1rem;
+    width: 80%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+
+    background: url(../../assets/bgWhite.png);
+    background-color: $white-color;
+    background-size: cover;
+    background-repeat: repeat;
+
+    box-shadow: 0 0 20px rbga(168, 168, 168, 0.15);
+
+    svg {
+      width: 3.7rem;
+      height: 3.7rem;
+      background-color: #5699d2;
+      margin: 0.5rem;
+      border-radius: 50%;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+
+      li {
+        margin: 1rem;
+
+        a {
+          color: $gray-color;
+          text-decoration: none;
+          font-size: 1.3rem;
+          text-transform: capitalize;
+          font-weight: 500;
+
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
 }

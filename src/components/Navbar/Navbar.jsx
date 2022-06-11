@@ -24,19 +24,19 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="app__navbar-menu">
-        <FiMenu onClick={() => setToggle(true)} />
-
         <AnimatePresence>
+          <FiMenu onClick={() => setToggle(true)} />
           {toggle && (
             <motion.div
               key="navbar"
-              whileInView={{ x: [600, 0] }}
+              initial={{ x: "500" }}
+              animate={{ x: 0 }}
               transition={{ duration: 0.65, ease: "easeOut", delay: 0 }}
-              exit={{ x: 1400 }}
+              exit={{ x: "500" }}
             >
               <FiX onClick={() => setToggle(false)} />
               <ul>
-                {links.map((item, index) => (
+                {links.map((item) => (
                   <li key={item}>
                     <a href={`#${item}`} onClick={() => setToggle(false)}>
                       {item}

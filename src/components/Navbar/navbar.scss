@@ -11,6 +11,9 @@
   @include respond(tablet-land) {
     justify-content: space-between;
   }
+  @include respond(small-phone) {
+    justify-content: flex-end;
+  }
 
   padding: 1rem 2rem;
   background: rgba(255, 255, 255, 0.25);
@@ -28,12 +31,16 @@
     img {
       margin: 1rem 0 0;
       width: 16rem;
-      height: 4.5rem;
+      height: 4rem;
 
       @include respond(big-desktop) {
         width: 18rem;
-        height: 5.2rem;
+        height: 4.7rem;
       }
+    }
+
+    @include respond(small-phone) {
+      display: none;
     }
   }
 
@@ -93,8 +100,8 @@
 }
 
 .app__navbar-menu {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   position: relative;
 
@@ -107,6 +114,7 @@
     width: 70%;
     height: 70%;
     color: #fff;
+    cursor: pointer;
   }
 
   div {
@@ -129,11 +137,11 @@
     background-size: cover;
     background-repeat: repeat;
 
-    box-shadow: 0 0 20px rbga(168, 168, 168, 0.15);
+    box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
 
     svg {
-      width: 3.7rem;
-      height: 3.7rem;
+      width: 3.5rem;
+      height: 3.5rem;
       background-color: #5699d2;
       margin: 0.5rem;
       border-radius: 50%;

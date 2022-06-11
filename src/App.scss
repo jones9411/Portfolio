@@ -3,6 +3,7 @@
 .app {
   background-color: $primary-color;
   font-family: $font-base;
+  min-height: 100vh;
 }
 
 .app__whitebg {
